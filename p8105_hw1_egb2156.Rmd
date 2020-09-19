@@ -20,7 +20,7 @@ prob1_df =
     samp = rnorm(10),
     samp_gt_0 = samp > 0,
     char_vec = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
-    factor_vec = factor(c("low", "med", "high", "high", "low", "low",         "med", "high", "med", "med"))
+    factor_vec = factor(c("low", "med", "high", "high", "low", "low", "med", "high", "med", "med"))
   )
 ```
 
@@ -35,7 +35,7 @@ mean(pull(prob1_df, factor_vec))
 
 **Findings:** We can take the mean of numbers and logical variables, but not the mean of character or factor variables.
 
-**Apply `as.numeric` function to the logical, character, and factor variables.**
+**Applying `as.numeric` function to the logical, character, and factor variables:**
 
 ```{r prob1_numeric, eval = FALSE}
 as.numeric(pull(prob1_df, samp_gt_0))
@@ -77,11 +77,15 @@ prob1_df %>%
 
 #### Problem 2
 
+**Loading the dataset:**
+
 ```{r prob2_load}
 data("penguins", package = "palmerpenguins")
 ```
 
-**Describing the dataset:**
+**Describing dataset:**
+
+_Size of dataset:_
 
 ```{r prob2_row_col}
 nrow(penguins)
@@ -93,13 +97,15 @@ This dataset has 344 rows and 8 columns.
 There are:
 
 * Three factor variables:
-`species` `island` and `sex`
+`species`, `island`, `sex`
 
 * Three integer variables:
-`flipper_length_mm` `body_mass_g` and `year`
+`flipper_length_mm`, `body_mass_g`, `year`
 
 * Two numeric variables:
-`bill_length_mm` and `bill_depth_mm`
+`bill_length_mm`, `bill_depth_mm`
+
+_Summary statistics:_
 
 ```{r prob2_summary}
 summary(penguins)
@@ -109,7 +115,7 @@ The data was collected between 2007 and 2009 across three islands: `Bisco`, `Dre
 
 There are three `species` represented: `Adelie` (n=152), `Chinstrap` (n=68), and `Gentoo` (n=124).
 
-**Practicing manually calculating means:**
+_Practicing manually calculating means:_
 
 The mean `body_mass_g` of the sample:
 
@@ -135,9 +141,9 @@ penguins %>%
   mean(na.rm = TRUE)
 ```
 
+**Making scatterplot:**
 
-**Make scatterplot:**
-```{r}
+```{r scatter_plot}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
   geom_point()
 
