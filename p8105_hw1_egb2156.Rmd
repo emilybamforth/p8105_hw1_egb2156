@@ -10,9 +10,9 @@ This is my solution for Homework 1.
 library(tidyverse)
 ```
 
-## Problem 1
+#### Problem 1
 
-Create data frame with the specified elements.
+**Creating data frame with specified elements:**
 
 ```{r}
 prob1_df =
@@ -24,34 +24,38 @@ prob1_df =
   )
 ```
 
-Take the mean of each variable in the data frame. What works and what doesn’t?
+**Taking the mean of each variable:**
 
-```{r}
+```{r prob1_means}
 mean(pull(prob1_df, samp))
 mean(pull(prob1_df, samp_gt_0))
 mean(pull(prob1_df, char_vec))
 mean(pull(prob1_df, factor_vec))
 ```
 
-We can take the mean of numbers and logical variables, but not the mean of character or factor variables.
+**Findings:** We can take the mean of numbers and logical variables, but not the mean of character or factor variables.
 
-Apply `as.numeric` function to the logical, character, and factor variables.
+**Apply `as.numeric` function to the logical, character, and factor variables.**
 
-```{r}
+```{r prob1_numeric, echo = FALSE}
 as.numeric(pull(prob1_df, samp_gt_0))
 as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factor_vec))
 ```
 
-The logical variable is now numeric, with `TRUE` converted to 1 and `FALSE` converted to 0.
+**Findings:**
 
-The character variable could not be converted to a numeric variable. A vector of NAs was returned.
+* The logical variable is now numeric, with `TRUE` converted to 1 and `FALSE` converted to 0.
 
-The factor variable is now numeric, with `low` converted to `2`, `medium` converted to `3`, and `high` converted to `1`.
+* The character variable could not be converted to a numeric variable. A vector of NAs was returned.
 
-This indicates that R can coerce logical variables into numeric when taking a mean. Even though it can covert factor variables into numeric, it does not coerce them into numeric to take a mean.
+* The factor variable is now numeric, with `low` converted to 2, `medium` converted to 3, and `high` converted to 1.
 
-```{r}
+* This indicates that R can coerce logical variables into numeric when taking a mean. Even though it can convert factor variables into numeric, it does not coerce them into numeric to take a mean.
+
+**Transforming some more variables:**
+
+```{r prob1_logical}
 
 prob1_df %>% 
   pull(samp_gt_0) %>% 
@@ -71,31 +75,28 @@ prob1_df %>%
 
 ```
 
-## Problem 2
+#### Problem 2
 
-First installed the `penguins` package.
-
-Describing the dataset:
-
-```{r}
+```{r prob2_load}
 data("penguins", package = "palmerpenguins")
+```
 
+**Describing the dataset:**
+
+```{r prob2_row_col}
 nrow(penguins)
 ncol(penguins)
 ```
 
 This dataframe has 344 rows and 8 columns.
 
-Three factor variables:
-
+* Three factor variables:
 `species` `island` and `sex`
 
-Three integer variables:
-
+*Three integer variables:
 `flipper_length_mm` `body_mass_g` and `year`
 
-Two numeric variables:
-
+*Two numeric variables:
 `bill_length_mm` and `bill_depth_mm`
 
 
