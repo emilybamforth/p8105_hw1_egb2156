@@ -103,9 +103,9 @@ This dataset has 344 rows and 8 columns.
 summary(penguins)
 ```
 
-The data was collected between 2007 and 2009 across three islands: Bisco, Dream and Torgersen.
+The data was collected between 2007 and 2009 across three `island`s: `Bisco`, `Dream` and `Torgersen`.
 
-There are three `species` represented: Adelie (n=152), Chinstrap (n=68), and Gentoo (n=124).
+There are three `species` represented: `Adelie` (n=152), `Chinstrap` (n=68), and `Gentoo` (n=124).
 
 **Practicing manually calculating means:**
 
