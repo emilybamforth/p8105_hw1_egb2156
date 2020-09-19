@@ -72,3 +72,36 @@ prob1_df %>%
 ```
 
 ## Problem 2
+
+First installed the `penguins` package.
+
+Describing the dataset:
+
+```{r}
+data("penguins", package = "palmerpenguins")
+
+nrow(penguins)
+ncol(penguins)
+```
+
+This dataframe has 344 rows and 8 columns.
+
+Three factor variables:
+
+`species` `island` and `sex`
+
+Three integer variables:
+
+`flipper_length_mm` `body_mass_g` and `year`
+
+Two numeric variables:
+
+`bill_length_mm` and `bill_depth_mm`
+
+
+
+
+
+
+
+
