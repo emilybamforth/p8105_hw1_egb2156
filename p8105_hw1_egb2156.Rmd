@@ -37,7 +37,7 @@ mean(pull(prob1_df, factor_vec))
 
 **Apply `as.numeric` function to the logical, character, and factor variables.**
 
-```{r prob1_numeric, echo = FALSE}
+```{r prob1_numeric, eval = FALSE}
 as.numeric(pull(prob1_df, samp_gt_0))
 as.numeric(pull(prob1_df, char_vec))
 as.numeric(pull(prob1_df, factor_vec))
@@ -88,16 +88,54 @@ nrow(penguins)
 ncol(penguins)
 ```
 
-This dataframe has 344 rows and 8 columns.
+This dataset has 344 rows and 8 columns.
 
 * Three factor variables:
 `species` `island` and `sex`
 
-*Three integer variables:
+* Three integer variables:
 `flipper_length_mm` `body_mass_g` and `year`
 
-*Two numeric variables:
+* Two numeric variables:
 `bill_length_mm` and `bill_depth_mm`
+
+```{r prob2_summary}
+summary(penguins)
+```
+
+The data was collected between 2007 and 2009 across three islands: Bisco, Dream and Torgersen.
+
+There are three `species` represented: Adelie (n=152), Chinstrap (n=68), and Gentoo (n=124).
+
+**Practicing manually calculating means:**
+
+The mean `body_mass_g` of the sample:
+
+```{r prob2_weight}
+penguins %>% 
+  pull(body_mass_g) %>%
+  mean(na.rm = TRUE)
+```
+
+The mean `flipper_length_mm` of the sample:
+
+```{r prob2_flipper}
+penguins %>% 
+  pull(flipper_length_mm) %>%
+  mean(na.rm = TRUE)
+```
+
+The mean `bill_length_mm` of the sample:
+
+```{r prob2_bill}
+penguins %>% 
+  pull(bill_length_mm) %>%
+  mean(na.rm = TRUE)
+```
+
+
+
+
 
 
 
